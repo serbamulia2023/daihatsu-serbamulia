@@ -1,0 +1,10 @@
+RewriteEngine On
+
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^daihatsu\.serbamulia\.co\.id$ [NC]
+RewriteRule ^ https://daihatsu.serbamulia.co.id%{REQUEST_URI} [R=301,L,NE]
+
+RewriteCond %{THE_REQUEST} \s/+index\.php(?:[?\s]) [NC]
+RewriteRule ^index\.php$ https://daihatsu.serbamulia.co.id/ [R=301,L]
+
+DirectoryIndex index.php
